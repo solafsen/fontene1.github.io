@@ -18,12 +18,13 @@ body {
 
         display: grid; 
         grid-template-columns: 1fr 1fr 0.5fr 0.7fr 0.2fr;
-        grid-template-rows: 0.2fr 1fr 0.5fr 1fr 0.2fr;  
+        grid-template-rows: 0.2fr 1fr 1.3fr 0.2fr 1fr 0.3fr;  
         grid-template-areas:  
 
         "header header header header header"
         "image image sidebar sidebar ."
         "image image sidebar sidebar ."
+        "main main sidebar sidebar ."
         "main main sidebar sidebar ."
         ". pagination . . .";
 
@@ -62,10 +63,10 @@ body {
 .snakkebobler { 
 
     grid-row-start: 4;
-    grid-row-end: 4; 
+    grid-row-end: 6; 
     grid-column-start: 1;
     grid-column-end: 5;
-    align-self: center;
+    align-self: flex-start;
     justify-self: center;
     z-index: 4;
 
@@ -73,7 +74,8 @@ body {
 
 .paginering {
 
-    grid-row: 7/8; 
+    grid-row-start: 6;
+    grid-row-end: 7; 
     grid-column-start: 2; 
     z-index: 1;
 
@@ -115,9 +117,20 @@ ul.startsiden li a {
 
 /* Styling av bildet */
 
+#bildet-flex {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+
+}
+
 img {
 	
 	border: solid 1px transparent;
+    width: 70vw;
+    height: 125vh;
 	border-radius: 50%;
 	position: absolute;
 	
@@ -126,15 +139,23 @@ img {
 
 /* Styling av border for lista */
 
-#høyre {
+#høyre-flex {
+
+    display: flex; 
+    flex: column; 
+    align-items: flex-start; 
+
+}
+
+.høyre-sidefelt {
 	
-	float: right;
-	padding: 40px;
-	border:solid 1px rgb(230, 230, 230);
+	width: 350px;
+    height: 1370px;
+	padding: 30px;
+	border:solid 1px transparent;
 	background-color: rgb(230, 230, 230);
-	width: 80%;
-	border-radius: 5px;
-    height: 1250px;
+	border-radius: 10px;
+    position: absolute;
 }
 
 /* Styling av lista fra s. 27 */ 
@@ -203,7 +224,7 @@ aside > h3 {
 
 /* 4/5 - Snakkeboble */
 
-.bubbles-1-page-2 { display: flex; margin: 5px auto; }
+.bubbles-1-page-2 { display: flex; }
 
 .speech-bubble1-page-2 {
 
@@ -367,6 +388,14 @@ aside > h3 {
 
 }
 
+.paginering {
+
+    text-align: center;
+    font-size: 17px;
+    color: #247DA5;
+    font-weight: 600;
+
+}
 
 .pagination a {
 
@@ -387,5 +416,6 @@ aside > h3 {
 
 }
 
+.pagination a:hover:not(.active) {background-color: #ddd;}
 
 
